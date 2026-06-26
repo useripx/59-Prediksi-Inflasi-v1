@@ -1,70 +1,112 @@
-# 📈 Prediksi Inflasi Bulanan App
+<div align="center">
 
-![Repo Size](https://img.shields.io/github/repo-size/useripx/Prediksi-Inflasi-v1.git?style=flat-square&color=blue)
-![Python Version](https://img.shields.io/badge/python-3.9%2B-blue?style=flat-square&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=Streamlit&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat-square&logo=scikit-learn&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=flat-square&logo=TensorFlow&logoColor=white)
+# 📈 59 Inflasi — Aplikasi Prediksi Inflasi Bulanan (Streamlit)
 
-Aplikasi web cerdas berbasis Machine Learning dan Deep Learning untuk memprediksi tingkat inflasi bulanan di Indonesia. Pengguna dapat memilih Bulan, Tahun, dan memasukkan penyebab utama inflasi secara tekstual. Aplikasi ini secara otomatis mengekstrak fitur NLP menggunakan *TF-IDF* dan memberikan hasil prediksi dengan antarmuka yang sangat modern (*Glassmorphism*).
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/GUI-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/ML-Scikit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/DL-TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Repo Size](https://img.shields.io/github/repo-size/useripx/59-Inflasi?style=for-the-badge&color=blue)
+![Version](https://img.shields.io/badge/Version-1.0-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Selesai-brightgreen?style=for-the-badge)
+![Semester](https://img.shields.io/badge/Semester-1-blueviolet?style=for-the-badge)
 
-## ✨ Fitur Utama
+**Aplikasi web cerdas berbasis Machine Learning dan Deep Learning untuk memprediksi tingkat inflasi bulanan di Indonesia menggunakan NLP (TF-IDF) dan algoritma Regresi (Random Forest, XGBoost, LSTM, dll).**
 
-- **Antarmuka Premium Modern**: Menggunakan desain *Glassmorphism* dan warna gradasi untuk memberikan tampilan masa kini yang jauh dari kesan generik aplikasi Streamlit standar.
-- **7 Algoritma Machine Learning & Deep Learning**:
+*Dibuat oleh Yogi Ario Pratama — NPM: 2313020004 — Proyek Semester 1*
+
+---
+
+</div>
+
+## 📖 Deskripsi
+
+**Proyek 59 (Inflasi)** adalah aplikasi *web-based* yang dikembangkan menggunakan **Streamlit**. Aplikasi ini memungkinkan pengguna untuk memprediksi tingkat inflasi bulanan di masa depan dengan memasukkan parameter Bulan, Tahun, serta deskripsi teks "Penyebab Utama" (seperti "Kenaikan harga BBM"). Data teks ini kemudian diekstrak konteksnya menggunakan metode *Natural Language Processing* (NLP) yaitu `TfidfVectorizer`.
+
+Model telah dilatih menggunakan data historis (`asset/Data Inflasi.xlsx`). Antarmuka aplikasi dibuat dengan desain *Glassmorphism* modern dengan palet warna gradien gelap dan aksen neon (*teal*).
+
+## ✨ Fitur
+
+- **Modern Premium UI** — Tampilan antarmuka menggunakan CSS khusus bergaya *Glassmorphism* untuk memberikan estetika yang memukau.
+- **Natural Language Processing (NLP)** — Fitur ekstraksi teks otomatis dari input teks pengguna.
+- **7 Algoritma AI (Machine Learning & Deep Learning)**:
   - Random Forest Regressor
   - XGBoost Regressor
-  - SVR (Support Vector Regression)
+  - Support Vector Regression (SVR)
   - Linear Regression
   - Prophet (oleh Meta)
   - SARIMA
-  - LSTM (Long Short-Term Memory)
-- **Natural Language Processing (NLP)**: Fitur ekstraksi otomatis teks menggunakan `TfidfVectorizer` untuk mengambil konteks dari kolom "Penyebab Utama".
-- **Eksperimen Terbuka**: Termasuk file Jupyter Notebook (`Prediksi_Inflasi.ipynb`) untuk melihat proses eksplorasi data (*EDA*) dan proses *training* model.
+  - LSTM (Long Short-Term Memory Neural Network)
+- **Trainable Models** — Menyediakan skrip `train_models.py` untuk melatih dan mengekspor ulang model `.pkl` jika Anda memiliki dataset inflasi terbaru.
 
-## 🚀 Cara Menjalankan Secara Lokal
+## 📁 Struktur Proyek
 
-1. **Clone repository ini** (setelah Anda mengunggahnya ke GitHub):
-   ```bash
-   git clone https://github.com/useripx/Prediksi-Inflasi-v1.git
-   cd prediksi-inflasi-app
-   ```
+- `app.py`: Skrip utama yang menjalankan *web server* antarmuka Streamlit.
+- `train_models.py`: Skrip *backend* untuk melatih dataset ke dalam 7 algoritma model ML/DL.
+- `Prediksi_Inflasi.ipynb`: *Jupyter Notebook* untuk eksperimen dan Analisis Data Eksploratif (EDA).
+- `models.pkl`: File terkompresi yang memuat objek model dan *TF-IDF Vectorizer* yang sudah dilatih (di-*train*).
+- `asset/Data Inflasi.xlsx`: Dataset historis sumber inflasi.
 
-2. **Buat Virtual Environment (Opsional namun direkomendasikan)**:
-   ```bash
-   python -m venv env
-   # Di Windows
-   env\Scripts\activate
-   # Di Mac/Linux
-   source env/bin/activate
-   ```
+## 🚀 Cara Menjalankan
 
-3. **Install *dependencies***:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### Prasyarat
 
-4. **Jalankan Aplikasi Streamlit**:
-   ```bash
-   streamlit run app.py
-   ```
+- **Python 3.9+** terinstal.
+- Disarankan menggunakan virtual environment (`venv`).
+- Instal dependensi yang diperlukan:
+  ```bash
+  pip install -r requirements.txt
+  ```
 
-Aplikasi akan secara otomatis terbuka di peramban (browser) web Anda melalui `http://localhost:8501`.
+### Eksekusi
 
-## 🛠️ Modifikasi Model
+Untuk menjalankan aplikasi web:
+```bash
+streamlit run app.py
+```
+*(Aplikasi akan otomatis terbuka pada browser default Anda di `http://localhost:8501`)*
 
-Jika Anda memiliki data baru (versi *update* dari `Data Inflasi.xlsx`) dan ingin melatih ulang (re-train) model, Anda cukup menjalankan skrip:
-
+Jika ingin melatih ulang (re-train) model (memperbarui `models.pkl`):
 ```bash
 python train_models.py
 ```
 
-Skrip ini akan memperbarui file `models.pkl` dengan model terbaru yang sudah dilatih dengan data yang Anda sediakan.
+## 🛠️ Teknologi
 
-## 📄 Struktur Direktori
-- `app.py`: File utama menjalankan server web Streamlit.
-- `train_models.py`: Skrip untuk melatih 7 jenis algoritma ML dan Deep Learning.
-- `Prediksi_Inflasi.ipynb`: Jupyter notebook untuk eksplorasi dan percobaan dataset.
-- `requirements.txt`: Daftar seluruh dependensi pustaka Python.
-- `asset/Data Inflasi.xlsx`: Dataset historis yang digunakan.
-- `models.pkl`: *File Pickle* yang menyimpan model terlatih dan TF-IDF Vectorizer.
+| Komponen | Detail |
+|----------|--------|
+| Bahasa | Python 3.9+ |
+| Framework UI | `streamlit` |
+| Library Data | `pandas`, `numpy` |
+| Machine Learning | `scikit-learn`, `xgboost`, `statsmodels`, `prophet` |
+| Deep Learning | `tensorflow` (Keras LSTM) |
+| Model Export | `pickle` |
+
+---
+
+## 👤 Author & Kontak
+
+**Yogi Ario Pratama**
+
+Jika Anda memiliki pertanyaan seputar kode ini atau ingin berdiskusi, silakan hubungi saya melalui WhatsApp:
+📱 **[Chat via WhatsApp (wa.me/6281358113087)](https://wa.me/6281358113087)**
+
+---
+
+### 💖 Donasi
+
+Dukungan Anda sangat berarti agar saya dapat terus semangat belajar dan mengembangkan proyek-proyek open-source lainnya. Jika berkenan memberikan donasi/apresiasi, Anda dapat menyalurkannya melalui:
+
+💳 **Bank Seabank**
+
+- No Rekening: **901497113744**
+- Atas Nama: **Yogi Ario Pratama**
+
+---
+
+<div align="center">
+
+*Proyek Mata Kuliah — Semester 1 — Teknik Informatika UNP*
+
+</div>
